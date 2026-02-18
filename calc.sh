@@ -1,17 +1,20 @@
 #!/bin/bash
 
 
-while getopts ":a:bc:" opt; do
+while getopts ":ha:s:m:" opt; do
 
 	case $opt in
+		h)
+			echo "To use the script do: ..."
+			;;
 		a)
-			echo "Option A is used with $OPTARG"
+			echo "Your number plus 10 is equal to: $(( 10 + $OPTARG ))"
 			;;
-		b)
-			echo "Option B doesn't use an argument"
+		s)
+			echo "Your number minus 10 is equal to: $(( $OPTARG - 10 ))"
 			;;
-		c)
-			echo "Option C is used with $OPTARG"
+		m)
+			echo "Your number times 10 is equal to: $(( $OPTARG * 10 ))"
 			;;
 		\?)
 			echo "Invalid getopt -$OPTARG"
